@@ -1,7 +1,11 @@
-{% extends 'layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block header %}
     {{ render(controller('App\\Controller\\HeaderController::index'))}}
+{% endblock %}
+
+{% block description %}
+    {{ render(controller('App\\Controller\\HeaderController::description'))}}
 {% endblock %}
 
 

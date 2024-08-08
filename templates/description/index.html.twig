@@ -1,0 +1,8 @@
+<link href="{{ asset('css/description.css') }}" rel="stylesheet"/>
+<div>{{ fest_desc1 }}</div>
+<div>{{ fest_desc2 }}</div>
+<div class="date_term">{{ start|date('d.m.Y') }} - {{ end|date('d.m.Y') }}</div>
+{% if ticket_link %}
+    <div class="button_ticket"><a href="{{ ticket_link }}" target="_blank">kup si lístek</a></div>
+{% endif %}
+
