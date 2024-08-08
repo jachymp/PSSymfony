@@ -19,7 +19,23 @@ class HeaderController extends AbstractController
             $params['grade'] = $year->getGrade();
         }
 
-
         return $this->render('header/index.html.twig', $params);
+    }
+
+    public function description(YearRepository $yearRepository): Response
+    {
+
+        $d = $yearRepository->findLastYearData();
+
+        $params = [];
+        foreach ($d as $year) {
+            $params['start'] = $year->getStart();
+            $params['end'] = $year->getEnd();
+            $params['fest_desc1'] = $year->getFestDescription1();
+            $params['fest_desc2'] = $year->getFestDescription2();
+            $params['ticket_link'] = $year->getTicketLink();
+        }
+
+        return $this->render('description/index.html.twig', $params);
     }
 }
