@@ -1,0 +1,29 @@
+#header {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(232,226,219);
+    border-bottom-width: thin;
+}
+
+#header .header_left_side {
+    display: flex;
+    align-items: center;
+}
+
+#header .header_left_side img {
+    width: 15%;
+}
+
+#header nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#header nav a {
+    text-decoration: none;
+    width: fit-content;
+    margin-right: 5%;
+}
