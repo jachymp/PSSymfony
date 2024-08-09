@@ -1,0 +1,71 @@
+.fr {
+    grid-area: patek;
+    font-weight: bold;
+    text-align: center;
+}
+
+.st {
+    grid-area: sobota;
+    font-weight: bold;
+    text-align: center;
+}
+
+.all {
+    grid-area: cely;
+    font-weight: bold;
+    text-align: center;
+}
+
+.student {
+    grid-area: student;
+    font-weight: bold;
+    text-align: left;
+}
+
+.student-fr {
+    grid-area: student-patek;
+    text-align: center;
+}
+
+.student-st {
+    grid-area: student-sobota;
+    text-align: center;
+}
+
+.student-all {
+    grid-area: student-cely;
+    text-align: center;
+}
+
+.normal {
+    grid-area: norm;
+    font-weight: bold;
+    text-align: left;
+}
+
+.normal-fr {
+    grid-area: norm-patek;
+    text-align: center;
+}
+
+.normal-st {
+    grid-area: norm-sobota;
+    text-align: center;
+}
+
+.normal-all {
+    grid-area: norm-cely;
+    text-align: center;
+}
+#price_list {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    grid-template-columns: 7rem 6rem 6rem 6rem;
+    grid-template-rows: 2rem 2rem 2rem;
+    grid-template-areas:
+        " . patek sobota cely"
+        "student student-patek student-sobota student-cely"
+        "norm norm-patek norm-sobota norm-cely";
+}

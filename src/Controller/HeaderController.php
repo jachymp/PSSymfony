@@ -2,40 +2,53 @@
 
 namespace App\Controller;
 
-use App\Entity\Year;
 use App\Repository\YearRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
 
 class HeaderController extends AbstractController
 {
-    public function index(YearRepository $yearRepository): Response
-    {
-        $d = $yearRepository->findLastYearData();
+    private array $data;
+    private array $params;
 
-        $params = [];
-        foreach ($d as $year) {
-            $params['grade'] = $year->getGrade();
-        }
-
-        return $this->render('header/index.html.twig', $params);
+    public function __construct(private readonly YearRepository $yearRepository) {
+        $this->data = $this->yearRepository->findLastYearData();
     }
 
-    public function description(YearRepository $yearRepository): Response
+    public function index(): Response
     {
-
-        $d = $yearRepository->findLastYearData();
-
-        $params = [];
-        foreach ($d as $year) {
-            $params['start'] = $year->getStart();
-            $params['end'] = $year->getEnd();
-            $params['fest_desc1'] = $year->getFestDescription1();
-            $params['fest_desc2'] = $year->getFestDescription2();
-            $params['ticket_link'] = $year->getTicketLink();
+        foreach ($this->data as $year) {
+            $this->params['grade'] = $year->getGrade();
         }
 
-        return $this->render('description/index.html.twig', $params);
+        return $this->render('header/index.html.twig', $this->params);
+    }
+
+    public function description(): Response
+    {
+        foreach ($this->data as $year) {
+            $this->params['start'] = $year->getStart();
+            $this->params['end'] = $year->getEnd();
+            $this->params['fest_desc1'] = $year->getFestDescription1();
+            $this->params['fest_desc2'] = $year->getFestDescription2();
+            $this->params['ticket_link'] = $year->getTicketLink();
+        }
+
+        return $this->render('description/index.html.twig', $this->params);
+    }
+
+    public function priceList(): Response
+    {
+        foreach ($this->data as $year) {
+            $this->params['fest_price_friday'] = $year->getFestPriceFriday();
+            $this->params['fest_price_saturday'] = $year->getFestPriceSaturday();
+            $this->params['fest_price_all'] = $year->getFestPriceAll();
+            $this->params['fest_price_friday_student'] = $year->getFestPriceFridayStudent();
+            $this->params['fest_price_saturday_student'] = $year->getFestPriceSaturdayStudent();
+            $this->params['fest_price_all_student'] = $year->getFestPriceAllStudent();
+        }
+
+        return $this->render('priceList/index.html.twig', $this->params);
+
     }
 }
