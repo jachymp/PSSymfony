@@ -3,8 +3,18 @@
     width: 100%;
     color: rgb(232,226,219);
     font-family: Inter, serif;
+    font-size: 18px;
 }
 
 body {
     margin: 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 25px;
 }
