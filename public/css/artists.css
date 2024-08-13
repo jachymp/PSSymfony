@@ -1,0 +1,100 @@
+#artists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.artist-card-heading {
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+    height: 5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+    border: 3px solid rgb(232,226,219);
+    border-radius: 5px;
+}
+
+.artist-card-heading h4 {
+    text-align: center;
+}
+
+.artist-card-heading .artist-card-icons {
+    display: none;
+}
+
+.artist-card-heading button {
+    display: none;
+}
+
+.artist-card-heading p {
+    display: none;
+}
+
+.artist-card-heading img {
+    display: none;
+}
+
+.artist-card-content {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: auto;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    border: 3px solid rgb(74,71,182);
+    border-radius: 5px;
+    background-color: rgb(232,226,219);
+}
+
+.artist-card-content h4 {
+    background-color: transparent;
+    color: black;
+}
+
+.artist-card-content p {
+    background-color: transparent;
+    color: black;
+}
+
+.artist-card-content button {
+    width: 60%;
+    height: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.artist-card-content button a {
+    text-decoration: none;
+}
+
+.artist-card-content button:hover {
+    border: 2px solid rgb(74,71,182);
+}
+
+.artist-card-icons {
+    display: flex;
+    padding: 1rem;
+    background-color: transparent;
+}
+
+.artist-card-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+
+.artist-card-icon img {
+    width: 25%;
+    padding-bottom: 0.5rem;
+    background-color: transparent;
+}
+
+
+

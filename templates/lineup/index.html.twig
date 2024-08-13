@@ -1,0 +1,25 @@
+<link href="{{ asset('css/artists.css') }}" rel="stylesheet"/>
+<script src="{{ asset('js/artists.js') }}"></script>
+{% for art in artists %}
+    <div id="artist-card" class="artist-card-heading" onclick="setClass({{ loop.index - 1 }})">
+        <h4>{{art.name}}</h4>
+        <p>{{art.description}}</p>
+        <div class="artist-card-icons">
+            <div class="artist-card-icon">
+                <img src="{{ asset('images/calendar.png') }}" alt="day"/>
+                <p>{{art.day}}</p>
+            </div>
+            <div class="artist-card-icon">
+                <img src="{{ asset('images/clock.png')}}" alt="start">
+                <p>{{art.artist_start}}</p>
+            </div>
+            <div class="artist-card-icon">
+                <img src="{{ asset('images/pin.png')}}" alt="location">
+                <p>{{art.place.name}}</p>
+            </div>
+        </div>
+        {% if art.link %}
+        <button><a href={{art.link}} target="_blank">Poslechni si</a></button>
+        {% endif %}
+    </div>
+{% endfor %}
