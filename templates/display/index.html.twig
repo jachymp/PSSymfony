@@ -12,4 +12,8 @@
     {{ render(controller('App\\Controller\\HeaderController::priceList'))}}
 {% endblock %}
 
+{% block artists %}
+    {{ render(controller('App\\Controller\\LineupController::artistOrder'))}}
+{% endblock %}
+
 

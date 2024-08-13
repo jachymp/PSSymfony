@@ -29,6 +29,10 @@ class YearRepository extends ServiceEntityRepository
             ;
         }
 
+        public function getLastYear() {
+            return $this->createQueryBuilder('m')->select('MAX(m.id) as lastYearId')->getQuery()->getSingleResult();
+        }
+
     //    public function findOneBySomeField($value): ?Year
     //    {
     //        return $this->createQueryBuilder('y')

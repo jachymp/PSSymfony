@@ -16,20 +16,19 @@ class LineupRepository extends ServiceEntityRepository
         parent::__construct($registry, Lineup::class);
     }
 
-//    /**
-//     * @return Lineup[] Returns an array of Lineup objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('l')
-//            ->andWhere('l.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('l.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Lineup[] Returns an array of Lineup objects
+     */
+    public function findByLastYear($value): array
+    {
+         return $this->createQueryBuilder('l')
+             ->select('l')
+            ->andWhere('l.year = :val')
+            ->setParameter('val', $value)
+            ->orderBy('l.artist_order', 'DESC')
+            ->getQuery()
+             ->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?Lineup
 //    {

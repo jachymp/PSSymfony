@@ -4,6 +4,7 @@
     color: rgb(232,226,219);
     font-family: Inter, serif;
     font-size: 18px;
+    box-sizing: border-box;
 }
 
 body {
