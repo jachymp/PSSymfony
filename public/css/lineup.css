@@ -1,10 +1,10 @@
-#lineup {
+#lineup, #support {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-#friday, #saturday {
+#friday, #saturday, #sunday {
     width: 40%;
 }
 
@@ -13,12 +13,12 @@
     flex-direction: row;
     justify-items: center;
     padding: 5px;
-    width: 70%;
 
 }
 
 .lineup_record .lineup_time {
     display: flex;
+    width: 50%;
 }
 
 .lineup_record .lineup_time div {
