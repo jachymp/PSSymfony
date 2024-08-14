@@ -23,20 +23,47 @@ class LineupRepository extends ServiceEntityRepository
     {
          return $this->createQueryBuilder('l')
              ->select('l')
-            ->andWhere('l.year = :val')
-            ->setParameter('val', $value)
-            ->orderBy('l.artist_order', 'DESC')
-            ->getQuery()
+             ->andWhere('l.year = :val')
+             ->andWhere('l.support is null')
+             ->setParameter('val', $value)
+             ->orderBy('l.artist_order', 'DESC')
+             ->getQuery()
              ->getResult();
     }
 
-//    public function findOneBySomeField($value): ?Lineup
-//    {
-//        return $this->createQueryBuilder('l')
-//            ->andWhere('l.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findLineupByDay($yearName, $dayName, $placeName): array
+    {
+        return $this->createQueryBuilder('l')
+            ->select('l.time_from', 'l.time_to', 'l.name')
+            ->join('l.place', 'p')
+            ->andWhere('l.year = :yearName')
+            ->setParameter('yearName', $yearName)
+            ->andWhere('l.day = :dayName')
+            ->setParameter('dayName', $dayName)
+            ->andWhere('p.name = :placeName')
+            ->setParameter('placeName', $placeName)
+            ->andWhere('l.support is null')
+            ->andWhere('l.night_order is null')
+            ->orderBy('l.time_from', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findLineupByDayNight($yearName, $dayName, $placeName): array
+    {
+        return $this->createQueryBuilder('l')
+            ->select('l.time_from', 'l.time_to', 'l.name')
+            ->join('l.place', 'p')
+            ->andWhere('l.year = :yearName')
+            ->setParameter('yearName', $yearName)
+            ->andWhere('l.day = :dayName')
+            ->setParameter('dayName', $dayName)
+            ->andWhere('p.name = :placeName')
+            ->setParameter('placeName', $placeName)
+            ->andWhere('l.support is null')
+            ->andWhere('l.night_order is not null')
+            ->orderBy('l.time_from', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

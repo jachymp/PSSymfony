@@ -1,0 +1,43 @@
+<link href="{{ asset('css/lineup.css') }}" rel="stylesheet"/>
+{% if lineup_public %}
+    <h2 id="lineupH">line up</h2>
+    <div id="lineup">
+        {% for key,day in lineup %}
+            {% if key == 'Pátek' %}
+                <div id="friday">
+                <h3>{{ key }}</h3>
+                    {% for key,spot in day %}
+                        <h4>{{ key }}</h4>
+                        {% for key,line in spot %}
+                            <div class="lineup_record">
+                                <div class="lineup_time">
+                                    <div>{{ line.time_from|date('H:i')}}</div>
+                                    <div class="separator">-</div>
+                                    <div>{{ line.time_to|date('H:i') }}</div>
+                                </div>
+                                <div>{{ line.name }}</div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% elseif key == 'Sobota' %}
+                <div id="saturday">
+                    <h3>{{ key }}</h3>
+                    {% for key,spot in day %}
+                        <h4>{{ key }}</h4>
+                        {% for key,line in spot %}
+                            <div class="lineup_record">
+                                <div class="lineup_time">
+                                    <div>{{ line.time_from|date('H:i')}}</div>
+                                    <div class="separator">-</div>
+                                    <div>{{ line.time_to|date('H:i') }}</div>
+                                </div>
+                                <div>{{ line.name }}</div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-{% block body %}
     <div id="header">
         {% block header %}{% endblock %}
     </div>
@@ -21,10 +20,12 @@
         {% block priceList %}{% endblock %}
     </div>
 
-    <h2>kapely</h2>
+    <h2 id="artistsH">kapely</h2>
     <div id="artists">
         {% block artists %}{% endblock %}
     </div>
-{% endblock %}
+
+    {% block lineup %}{% endblock %}
+
 </body>
 </html>

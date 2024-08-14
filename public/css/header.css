@@ -27,3 +27,7 @@
     width: fit-content;
     margin-right: 5%;
 }
+
+#header nav a:hover {
+    color: rgb(74,71,182);
+}

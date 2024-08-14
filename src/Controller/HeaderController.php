@@ -19,6 +19,7 @@ class HeaderController extends AbstractController
     {
         foreach ($this->data as $year) {
             $this->params['grade'] = $year->getGrade();
+            $this->params['lineup_public'] = $year->isLineupPublic();
         }
 
         return $this->render('header/index.html.twig', $this->params);
