@@ -1,0 +1,31 @@
+#lineup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#friday, #saturday {
+    width: 40%;
+}
+
+.lineup_record {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    padding: 5px;
+    width: 70%;
+
+}
+
+.lineup_record .lineup_time {
+    display: flex;
+}
+
+.lineup_record .lineup_time div {
+    text-align: center;
+    width: 80px;
+}
+
+.lineup_record .lineup_time .separator {
+    width: fit-content;
+}
