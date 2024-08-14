@@ -1,0 +1,37 @@
+<link href="{{ asset('css/lineup.css') }}" rel="stylesheet"/>
+{% if lineup_public %}
+    <h2 id="supportH">doprovodný program</h2>
+    <div id="support">
+        {% for key,day in support %}
+            {% if key == 'Sobota' %}
+                <div id="saturday">
+                    <h3>{{ key }}</h3>
+                        {% for key,data in day %}
+                            <div class="lineup_record">
+                                <div class="lineup_time">
+                                    <div>{{ data.time_from|date('H:i')}}</div>
+                                    <div class="separator">-</div>
+                                    <div>{{ data.time_to|date('H:i') }}</div>
+                                </div>
+                                <div>{{ data.name }}</div>
+                            </div>
+                    {% endfor %}
+                </div>
+            {% elseif key == 'Neděle' %}
+                <div id="sunday">
+                    <h3>{{ key }}</h3>
+                    {% for key,data in day %}
+                        <div class="lineup_record">
+                            <div class="lineup_time">
+                                <div>{{ data.time_from|date('H:i')}}</div>
+                                <div class="separator">-</div>
+                                <div>{{ data.time_to|date('H:i') }}</div>
+                            </div>
+                            <div>{{ data.name }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{%  endif %}

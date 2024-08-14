@@ -66,4 +66,18 @@ class LineupRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findSupportByDay($yearName, $dayName): array
+    {
+        return $this->createQueryBuilder('l')
+            ->select('l.time_from', 'l.time_to', 'l.name')
+            ->andWhere('l.year = :yearName')
+            ->setParameter('yearName', $yearName)
+            ->andWhere('l.day = :dayName')
+            ->setParameter('dayName', $dayName)
+            ->andWhere('l.support is not null')
+            ->orderBy('l.time_from', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

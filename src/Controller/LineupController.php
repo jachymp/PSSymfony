@@ -12,6 +12,7 @@ class LineupController extends AbstractController
 {
     private array $data;
     private array $artistLineup;
+    private array $supporterLineup;
     private array $days = ['Pátek', 'Sobota', 'Neděle'];
     private bool $isLineupPublic;
     public function __construct(
@@ -23,7 +24,7 @@ class LineupController extends AbstractController
         $this->data = $lineupRepository->findByLastYear($lastYear['lastYearId']);
 
         foreach ($this->data as $lineup) {
-            $lineup->artist_start = $lineup->getTimeFrom()->format('H:i:s');
+            $lineup->artist_start = $lineup->getTimeFrom()->format('H:i');
         }
 
         foreach ($yearRepository->findLastYearData() as $year) {
@@ -39,9 +40,14 @@ class LineupController extends AbstractController
                 if(empty($this->artistLineup[$day][$place->getName()])) {
                     unset($this->artistLineup[$day][$place->getName()]);
                 }
+
+                $this->supporterLineup[$day] = $lineupRepository->findSupportByDay($lastYear['lastYearId'], $day);
             }
             if(empty($this->artistLineup[$day])) {
                 unset($this->artistLineup[$day]);
+            }
+            if(empty($this->supporterLineup[$day])) {
+                unset($this->supporterLineup[$day]);
             }
         }
     }
@@ -56,6 +62,14 @@ class LineupController extends AbstractController
     {
         return $this->render('lineup/lineup.html.twig', [
             'lineup' => $this->artistLineup,
+            'lineup_public' => $this->isLineupPublic,
+        ]);
+    }
+
+    public function support(): Response
+    {
+        return $this->render('lineup/support.html.twig', [
+            'support' => $this->supporterLineup,
             'lineup_public' => $this->isLineupPublic,
         ]);
     }
