@@ -52,4 +52,13 @@ class HeaderController extends AbstractController
         return $this->render('priceList/index.html.twig', $this->params);
 
     }
+
+    public function footer(): Response
+    {
+        foreach ($this->data as $year) {
+            $this->params['spotify_link'] = $year->getSpotifyLink();
+        }
+
+        return $this->render('footer/index.html.twig', $this->params);
+    }
 }

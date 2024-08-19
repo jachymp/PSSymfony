@@ -24,4 +24,8 @@
     {{ render(controller('App\\Controller\\LineupController::support'))}}
 {% endblock %}
 
+{% block footer %}
+    {{ render(controller('App\\Controller\\HeaderController::footer'))}}
+{% endblock %}
+
 

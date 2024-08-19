@@ -65,6 +65,9 @@ class Year
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $updated_at = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $spotify_link = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -270,6 +273,18 @@ class Year
     public function setUpdatedAt(\DateTimeInterface $updated_at): static
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getSpotifyLink(): ?string
+    {
+        return $this->spotify_link;
+    }
+
+    public function setSpotifyLink(?string $spotify_link): static
+    {
+        $this->spotify_link = $spotify_link;
 
         return $this;
     }
