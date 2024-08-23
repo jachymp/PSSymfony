@@ -1,12 +1,21 @@
 <link href="{{ asset('css/priceList.css') }}" rel="stylesheet"/>
-<div class="fr">Pátek</div>
-<div class="st">Sobota</div>
-<div class="all">Celý</div>
-<div class="student">Student</div>
-<div class="student-fr">{{fest_price_friday_student}} Kč</div>
-<div class="student-st">{{fest_price_saturday_student}} Kč</div>
-<div class="student-all">{{fest_price_all_student}} Kč</div>
-<div class="normal">Bez slevy</div>
-<div class="normal-fr">{{fest_price_friday}} Kč</div>
-<div class="normal-st">{{fest_price_saturday}} Kč</div>
-<div class="normal-all">{{fest_price_all}} Kč</div>
+<div class="pricelist-container">
+    <div id="price_list">
+        <div class="fr">Pátek</div>
+        <div class="st">Sobota</div>
+        <div class="all">Celý</div>
+        <div class="student">Student</div>
+        <div class="student-fr">{{fest_price_friday_student}} Kč</div>
+        <div class="student-st">{{fest_price_saturday_student}} Kč</div>
+        <div class="student-all">{{fest_price_all_student}} Kč</div>
+        <div class="normal">Bez slevy</div>
+        <div class="normal-fr">{{fest_price_friday}} Kč</div>
+        <div class="normal-st">{{fest_price_saturday}} Kč</div>
+        <div class="normal-all">{{fest_price_all}} Kč</div>
+    </div>
+    <div class="pricelist-pics">
+        {% for i in 0..2 %}
+            <img src="{{ asset('images/PS24_ilustrace_motivy-44.png')}}" alt="motiv"/>
+        {% endfor %}
+    </div>
+</div>
