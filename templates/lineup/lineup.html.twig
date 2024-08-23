@@ -1,5 +1,10 @@
 <link href="{{ asset('css/lineup.css') }}" rel="stylesheet"/>
 {% if lineup_public %}
+    <div class="lineup-pics">
+        {% for i in 0..1 %}
+            <img class="decor_pics" src="{{ asset('images/PS24_ilustrace_motivy-59.png')}}" alt="motiv"/>
+        {% endfor %}
+    </div>
     <h2 id="lineupH">line up</h2>
     <div id="lineup">
         {% for key,day in lineup %}

@@ -1,5 +1,9 @@
 <link href="{{ asset('css/lineup.css') }}" rel="stylesheet"/>
 {% if lineup_public %}
+    <div class="lineup-pics">
+        <img class="decor_pics" src="{{ asset('images/PS24_ilustrace_motivy-03d.png')}}" alt="motiv"/>
+        <img class="decor_pics" src="{{ asset('images/PS24_ilustrace_motivy-04d.png')}}" alt="motiv"/>
+    </div>
     <h2 id="supportH">doprovodný program</h2>
     <div id="support">
         {% for key,day in support %}
@@ -35,3 +39,8 @@
         {% endfor %}
     </div>
 {%  endif %}
+<div class="lineup-bottom-pics">
+    <img src="{{ asset('images/PS24_ilustrace_motivy-09.png')}}" alt="motiv"/>
+    <img src="{{ asset('images/PS24_ilustrace_motivy-11.png')}}" alt="motiv"/>
+    <img src="{{ asset('images/PS24_ilustrace_motivy-12.png')}}" alt="motiv"/>
+</div>

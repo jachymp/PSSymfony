@@ -29,3 +29,19 @@
 .lineup_record .lineup_time .separator {
     width: fit-content;
 }
+
+.lineup-pics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.lineup-bottom-pics {
+    display: flex;
+    justify-content: center;
+}
+
+.lineup-bottom-pics img {
+    width: 2%;
+    margin: 1rem;
+}

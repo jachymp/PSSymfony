@@ -1,3 +1,20 @@
+.pricelist-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pricelist-pics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.pricelist-container .pricelist-pics img {
+    width: 8%;
+    margin: 1.5rem;
+}
+
 .fr {
     grid-area: patek;
     font-weight: bold;
